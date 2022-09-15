@@ -1,0 +1,30 @@
+﻿@model List<BuildSharper.Course301.App1.Models.Drink>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cocktails</h1>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Drink</td>
+            <td>Alcohol</td>
+            <td>Ingredents</td>
+        </tr>
+    </thead>
+@foreach (var drink in Model)
+{
+    <tr>
+            <td><a href=@Url.Action("Drink", "Home", new { id = drink.Id })>@drink.Name</a></td>
+            <td>@drink.AlcoholType.ToString()</td>
+            <td>
+            @foreach (var ingredient in drink.Ingredients)
+            {
+                <li>@ingredient</li>
+            }
+            </td>
+    </tr>
+}
+</table>

@@ -1,0 +1,26 @@
+﻿@model BuildSharper.Course301.App1.Models.Drink
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="row">
+    <div class="col-12"><button type="button" class="btn btn-primary" onclick="history.go(-1)">Back</button></div>
+</div>
+<div class="text-center">
+    <h1 class="display-4">@Model.Name <em>(@Model.AlcoholType.ToString())</em></h1>
+</div>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        @Model.Instructions
+    </div>
+</div>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        @foreach (var ingredient in Model.Ingredients)
+        {
+            <li>@ingredient</li>
+        }
+    </div>
+</div>
